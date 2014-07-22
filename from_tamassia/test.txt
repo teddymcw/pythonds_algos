@@ -1,0 +1,7 @@
+If you iterate a dictionary, it will give you its keys. This might be a little surprising, what about the values? 
+Dictionaries are best thought of as a container of keys, where each key also has a value associated with it. If you want, you can choose to use methods on the dictionary to iterate over its values, or over its key/value pairs.
+
+Notice that the keys appear in a surprising order. Dictionaries have no inherent order. When iterated, they produce their keys in an arbitrary order. 
+Each iterable can decide the semantics of its sequence. Dictionaries promise to give you all of the keys, with no extras, and no duplicates, but make no guarantee about the order of the keys.
+
+This demonstrates an important point: iterating a value doesn't mean you can index into it. Iteration only knows how to get the next value, it can't get the first, or the last, or the third-from-no
