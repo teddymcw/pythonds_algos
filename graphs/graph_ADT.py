@@ -24,7 +24,30 @@ class Graph:
         else:
             return None
 
-    def __contains__(self,n):
+    #user added
+    def printNone(self):
+        print("nothing")
+
+    #user added
+    def printVertices(self):
+        """Graph -> string 
+        iterates through all vertices in vertlist and prints, also prints numVertices"""
+        print("numvertices: {}".format(self.numVertices))
+        print("all vertices: {}".format(self.vertList.keys()))
+        #for n in self.vertList:
+        #    print(n)
+        print("printing all of getConnections now")
+        for v in g:
+            for w in v.getConnections():
+                print("({0}, {1})".format(v.getId(), w.getId()))
+
+    #user added
+    def printNeighbors(self):
+        for v in g:
+            for nbr in v.connectedTo:
+                print(nbr)
+
+    def __contains__(self, n):
         return n in self.vertList
 
     def addEdge(self,f,t,cost=0):
@@ -59,6 +82,11 @@ class Vertex:
 
     def getWeight(self,nbr):
         return self.connectedTo[nbr]
+
+    def getConnectionPairs(self):
+        for v in g:
+            for w in v.getConnections():
+                print("({0}, {1})".format(v.getId(), w.getId()))
 
 
 #simple test print out
@@ -96,4 +124,36 @@ def traverse(y):
         x = x.getPred()
     print(x.getId())
 
-traverse(g.getVertex('sage'))
+#traverse(g.getVertex('sage'))
+g = Graph()
+g.addVertex(10)
+print(g.vertList)
+
+for i in range(6):
+    g.addVertex(i)
+print(g.vertList)
+
+g.addEdge(0,1,5)
+g.addEdge(0,3,8)
+g.addEdge(1,12,9)
+g.addEdge(1,1,9)
+g.addEdge(2,3,7)
+g.addEdge(2,4,8)
+g.addEdge(3,8,6)
+g.addEdge(3,5,6)
+g.addEdge(4,2,1)
+g.addEdge(5,2,5)
+
+
+
+g.printVertices()
+g.getVertices()
+g.printNone()
+#g.getConnectionPairs()
+
+for v in g:
+    for w in v.getConnections():
+        print("({0}, {1})".format(v.getId(), w.getId()))
+
+print("print neighbors")
+print(g.printNeighbors())

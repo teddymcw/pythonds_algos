@@ -35,6 +35,6 @@ class OrderedList:
 	    else:
 	        temp.setNext(current)
 	        previous.setNext(temp)
-	        
+	         
 ol = OrderedList()
 print(ol)

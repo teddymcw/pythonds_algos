@@ -10,6 +10,15 @@ def listsum(numList):
 
 print(listsum([1,3,5,7,9]))
 
+def toStr(n,base):
+   convertString = "0123456789ABCDEF"
+   if n < base:
+      return convertString[n]
+   else:
+      return toStr(n//base,base) + convertString[n%base]
+
+print(toStr(1453,16))
+
 
 def dpMakeChange(coinValueList,change,minCoins):
    for cents in range(change+1):

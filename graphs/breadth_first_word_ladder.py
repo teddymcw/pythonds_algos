@@ -39,3 +39,14 @@ def bfs(g,start):
         nbr.setPred(currentVert)
         vertQueue.enqueue(nbr)
     currentVert.setColor('black')
+
+#note the below doesn't work because we don't have the actual word list file
+#this traverse method is what is going to print out the word once we have our graph
+def traverse(y):
+    x = y
+    while (x.getPred()):
+        print(x.getId())
+        x = x.getPred()
+    print(x.getId())
+
+traverse(g.getVertex('sage'))
